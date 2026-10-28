@@ -1,3 +1,5 @@
 <Solution>
+  <Project Path="Dfa.App/Dfa.App.csproj" />
   <Project Path="Dfa.Core/Dfa.Core.csproj" />
+  <Project Path="Dfa.Tests/Dfa.Tests.csproj" />
 </Solution>
