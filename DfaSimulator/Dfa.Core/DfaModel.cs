@@ -37,13 +37,16 @@ public class DfaModel
 
     public string? ResolveSymbol(char inputChar)
     {
+        if (SymbolClasses.Count > 0)
+        {
+            var matchedClass = SymbolClasses.FirstOrDefault(sc => sc.Matches(inputChar));
+            if (matchedClass != null && Alphabet.Contains(matchedClass.Name))
+                return matchedClass.Name;
+        }
+
         string s = inputChar.ToString();
         if (Alphabet.Contains(s))
             return s;
-
-        var matchedClass = SymbolClasses.FirstOrDefault(sc => sc.Matches(inputChar));
-        if (matchedClass != null && Alphabet.Contains(matchedClass.Name))
-            return matchedClass.Name;
 
         return null;
     }
